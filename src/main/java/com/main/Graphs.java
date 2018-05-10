@@ -1,4 +1,4 @@
-package com.test;
+package com.main;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -23,9 +23,10 @@ public class Graphs {
         }
     }
 
-    public static final int MAX_VERTICS=20;       //最多的顶点数
-    public Vertex [] verticesList;//顶点
-    public int [][]edges;         //存储边
+    public static final int MAX_VERTICS=20;   //最多的顶点数
+    //图的组成：顶点和边
+    public Vertex [] verticesList;           //顶点
+    public int [][]edges;                    //存储边
     int verticsNum=0;
     Stack<Integer> stack=null;
     Queue<Integer> queue=null;
