@@ -1,4 +1,4 @@
-package com.main;
+package com.wickedvalley.datastructure.datastructureimpl.datastructure7_graph;
 
 /**
  * Created by MinZeng

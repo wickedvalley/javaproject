@@ -1,4 +1,4 @@
-package com.main;
+package com.wickedvalley.datastructure.datastructureimpl.datastructure7_graph;
 
 import java.util.LinkedList;
 import java.util.Queue;
