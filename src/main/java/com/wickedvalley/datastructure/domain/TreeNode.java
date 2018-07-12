@@ -5,23 +5,31 @@ package com.wickedvalley.datastructure.domain;
  * 二叉树的节点设置
  */
 public class TreeNode {
-    private Integer value;
+    private Integer data;
     private TreeNode left;
     private TreeNode right;
 
     public TreeNode() {
     }
 
-    public TreeNode(Integer value) {
-        this.value = value;
+    /**
+     * 显示内容
+     * */
+    public void display(){
+        System.out.println("show:"+this.data);
     }
 
-    public Integer getValue() {
-        return value;
+
+    public TreeNode(Integer data) {
+        this.data = data;
     }
 
-    public void setValue(Integer value) {
-        this.value = value;
+    public Integer getData() {
+        return data;
+    }
+
+    public void setData(Integer data) {
+        this.data = data;
     }
 
     public TreeNode getLeft() {
