@@ -1,9 +1,14 @@
 package com.wickedvalley.datastructure.domain;
 
+import lombok.Data;
+import lombok.ToString;
+
 /**
  * Created by Administrator on 2018/7/5.
  * 二叉树的节点设置
  */
+@Data
+@ToString(callSuper = false)
 public class TreeNode {
     private Integer data;
     private TreeNode left;
@@ -24,27 +29,5 @@ public class TreeNode {
         this.data = data;
     }
 
-    public Integer getData() {
-        return data;
-    }
 
-    public void setData(Integer data) {
-        this.data = data;
-    }
-
-    public TreeNode getLeft() {
-        return left;
-    }
-
-    public void setLeft(TreeNode left) {
-        this.left = left;
-    }
-
-    public TreeNode getRight() {
-        return right;
-    }
-
-    public void setRight(TreeNode right) {
-        this.right = right;
-    }
 }

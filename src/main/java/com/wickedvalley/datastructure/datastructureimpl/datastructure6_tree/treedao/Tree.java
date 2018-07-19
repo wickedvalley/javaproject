@@ -2,9 +2,6 @@ package com.wickedvalley.datastructure.datastructureimpl.datastructure6_tree.tre
 
 import com.wickedvalley.datastructure.domain.TreeNode;
 
-/**
- * Created by Administrator on 2018/7/7.
- */
 public interface Tree {
 
     /**
@@ -43,7 +40,18 @@ public interface Tree {
     TreeNode findMinNode();
 
     /**
-     * 删除某个节点
+     *求深度
      * */
-    void delete(int key);
+    int treeDepth(TreeNode root);
+
+    /**
+     *翻转二叉树
+     * */
+    void reverseTree(TreeNode root);
+
+    /**
+     *层次遍历二叉树
+     * */
+    void levelPrintTree(TreeNode root);
+
 }
