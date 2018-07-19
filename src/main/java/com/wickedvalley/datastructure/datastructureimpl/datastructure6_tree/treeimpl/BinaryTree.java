@@ -161,13 +161,36 @@ public class BinaryTree implements Tree {
     }
 
     /**
-     * 翻转二叉树
+     * 层次遍历二叉树
      */
     @Override
     public void levelPrintTree(TreeNode root) {
+        if (root == null) {
+            System.out.println("root节点为空");
+            return;
+        }
         Queue<TreeNode> queue = new LinkedList<TreeNode>();
-
-
+        queue.add(root);
+        int current = 1;//当前层节点的数量
+        int next = 0;//下一层的节点数量
+        TreeNode node;
+        while (!queue.isEmpty()) {
+            node = queue.poll();
+            current--;
+            System.out.println(node.getData());
+            if (node.getLeft() != null) {
+                queue.add(node.getLeft());
+                next++;
+            }
+            if (node.getRight() != null) {
+                queue.add(node.getRight());
+                next++;
+            }
+            if (current == 0) {
+                current = next;
+                next = 0;
+            }
+        }
     }
 
     public static void main(String[] args) {
@@ -205,7 +228,13 @@ public class BinaryTree implements Tree {
         //求深度
         System.out.println(bt.treeDepth(bt.root));
 
+        //层次遍历二叉树
+        System.out.println("层次遍历二叉树");
+        bt.levelPrintTree(bt.root);
+
         //翻转二叉树
         bt.reverseTree(bt.root);
+
+
     }
 }
