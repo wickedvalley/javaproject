@@ -2,7 +2,6 @@ package com.wickedvalley.datastructure.datastructureimpl.datastructure7_graph;
 
 /**
  * Dijsktra算法
- * Created by MinZeng
  * 时间：2018/5/9
  * 图见本项目的graph
  */
