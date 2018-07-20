@@ -1,6 +1,6 @@
 # 七、第7部分（graph）
 1. 图的结构如下所示
-![graph](../images/graph.png "graph")
+![graph](../resources/graph.png "graph")
 <br>
 <br>
 2. 图的相关操作

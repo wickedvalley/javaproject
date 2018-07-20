@@ -1,6 +1,6 @@
 # 六、第6部分（tree）
 1. 二叉树结构如下图所示：
-![binaryTree](../images/binaryTree.png "binaryTree") 
+![binaryTree](../resources/binaryTree.png "binaryTree") 
 <br>
 <br>
 2. 二叉树的相关操作
