@@ -109,6 +109,50 @@ public class Sorter {
     }
 
     /**
+     * 快速排序
+     * 平均时长：O(nlog2n)
+     * 最长时间：O(n2)
+     * 稳定性：不稳定
+     * <p>
+     * 原理简介：
+     * 1.设定i，j两个指针，分别指向左右两端，中间值x=array[i]
+     * 2.在右边找到第一个比x小的值放在x处，i++
+     * 3.在左侧找到第一个比x大的值放在j处，j--
+     * 4.当i==j的时候，将array[i]=x
+     * 5.分别对每组进行快速排序
+     */
+    public void quickSort(int[] array, int left, int right) {
+        if (left < right) {
+            int i = left, j = right, x = array[left];
+            while (i < j) {
+                //在右侧找到第一个比x小的数，放在左侧
+                while (i < j && array[j] > x) {
+                    j--;
+                }
+                if (i < j) {
+                    array[i++] = array[j];
+                }
+                //在左侧找到第一个比x大的数，放在右侧
+                while (i < j && array[i] < x) {
+                    i++;
+                }
+                if (i < j) {
+                    array[j--] = array[i];
+                }
+            }
+            //i==j
+            array[i] = x;
+
+            //分别对左右组进行快排
+            quickSort(array, left, i - 1);
+            quickSort(array, left + 1, right);
+        } else {
+            return;
+        }
+
+    }
+
+    /**
      * 打印数据
      */
     public void printArray(int[] array) {
@@ -136,6 +180,10 @@ public class Sorter {
 
         //希尔排序
         sorter.shellSort(array);
+        sorter.printArray(array);
+
+        //快速排序
+        sorter.quickSort(array, 0, array.length - 1);
         sorter.printArray(array);
 
 

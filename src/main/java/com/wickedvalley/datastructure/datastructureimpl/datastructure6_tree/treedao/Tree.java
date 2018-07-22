@@ -20,6 +20,11 @@ public interface Tree {
     void preOrder(TreeNode current);
 
     /**
+     * 非递归先序遍历
+     * */
+    void nonRecursionPreOrder(TreeNode current);
+
+    /**
      * 中序遍历
      * */
     void middleOrder(TreeNode current);

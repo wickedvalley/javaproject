@@ -5,6 +5,7 @@ import com.wickedvalley.datastructure.domain.TreeNode;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 public class BinaryTree implements Tree {
 
@@ -72,6 +73,27 @@ public class BinaryTree implements Tree {
             preOrder(current.getLeft());
             preOrder(current.getRight());
         }
+    }
+
+    /**
+     * 非递归先序遍历
+     */
+    @Override
+    public void nonRecursionPreOrder(TreeNode current) {
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+        TreeNode treeNode;
+        stack.push(current);
+        while (!stack.isEmpty()) {
+            treeNode = stack.pop();
+            System.out.println(treeNode.getData());
+            if (treeNode.getRight() != null) {
+                stack.push(treeNode.getRight());
+            }
+            if (treeNode.getLeft() != null) {
+                stack.push(treeNode.getLeft());
+            }
+        }
+
     }
 
     /**
@@ -204,6 +226,10 @@ public class BinaryTree implements Tree {
         //先序遍历
         System.out.println("先序遍历");
         bt.preOrder(bt.root);
+
+        //非递归先序遍历
+        System.out.println("非递归先序遍历");
+        bt.nonRecursionPreOrder(bt.root);
 
         //中序遍历
         System.out.println("中序遍历");
