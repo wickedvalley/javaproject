@@ -2,10 +2,9 @@ package com.wickedvalley.datastructure.datastructureimpl.datastructure6_tree.tre
 
 import com.wickedvalley.datastructure.datastructureimpl.datastructure6_tree.treedao.Tree;
 import com.wickedvalley.datastructure.domain.TreeNode;
+import org.omg.CORBA.TRANSACTION_MODE;
 
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.*;
 
 public class BinaryTree implements Tree {
 
@@ -110,6 +109,29 @@ public class BinaryTree implements Tree {
     }
 
     /**
+     * 非递归中序遍历
+     */
+    @Override
+    public void nonRecursionMiddleOrder(TreeNode current) {
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+        TreeNode treeNode = current;
+        while (treeNode != null || stack.size() > 0) {
+            //存在左子树
+            while (treeNode != null) {
+                stack.push(treeNode);
+                treeNode = treeNode.getLeft();
+            }
+            //栈不为空
+            if (stack.size() > 0) {
+                treeNode = stack.pop();
+                System.out.println(treeNode.getData());
+                treeNode = treeNode.getRight();
+            }
+        }
+
+    }
+
+    /**
      * 后序遍历
      */
     @Override
@@ -119,6 +141,35 @@ public class BinaryTree implements Tree {
             middleOrder(current.getRight());
             System.out.println(current.getData());
         }
+    }
+
+    /**
+     * 非递归后续遍历
+     * 思想：
+     * 1.先序遍历是：根-->左-->右
+     * 2.后续遍历是：左-->右-->根
+     * 则后续遍历是：根-->右-->左，然后再翻转即可
+     */
+    @Override
+    public void nonRecursionPostOrder(TreeNode current) {
+        List<Integer> list = new ArrayList<Integer>();
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+        TreeNode treeNode;
+        stack.push(current);
+
+        //根-->右-->左 遍历
+        while (!stack.isEmpty()) {
+            treeNode = stack.pop();
+            list.add(treeNode.getData());
+            if (treeNode.getLeft()!=null){
+                stack.add(treeNode.getLeft());
+            }
+            if (treeNode.getRight()!=null){
+                stack.add(treeNode.getRight());
+            }
+        }
+        Collections.reverse(list);
+        System.out.println(list);
     }
 
     /**
@@ -235,9 +286,17 @@ public class BinaryTree implements Tree {
         System.out.println("中序遍历");
         bt.middleOrder(bt.root);
 
+        //非递归中序遍历
+        System.out.println("非递归中序遍历");
+        bt.nonRecursionMiddleOrder(bt.root);
+
         //后序遍历
         System.out.println("后序遍历");
         bt.postOrder(bt.root);
+
+        //非递归后序遍历
+        System.out.println("非递归后序遍历");
+        bt.nonRecursionPostOrder(bt.root);
 
         //查找最大节点
         TreeNode maxNode = bt.findMaxNode();

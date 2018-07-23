@@ -30,9 +30,19 @@ public interface Tree {
     void middleOrder(TreeNode current);
 
     /**
+     * 非递归中序遍历
+     * */
+    void nonRecursionMiddleOrder(TreeNode current);
+
+    /**
      * 后续遍历
      * */
     void postOrder(TreeNode current);
+
+    /**
+     * 非递归后续遍历
+     * */
+    void nonRecursionPostOrder(TreeNode current);
 
     /**
      * 查找最大节点
