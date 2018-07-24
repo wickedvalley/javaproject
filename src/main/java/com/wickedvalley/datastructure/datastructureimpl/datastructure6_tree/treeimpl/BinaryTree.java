@@ -76,6 +76,7 @@ public class BinaryTree implements Tree {
 
     /**
      * 非递归先序遍历
+     * 说明：该遍历也属于深度优先遍历
      */
     @Override
     public void nonRecursionPreOrder(TreeNode current) {
@@ -235,6 +236,7 @@ public class BinaryTree implements Tree {
 
     /**
      * 层次遍历二叉树
+     * 说明：该遍历也属于广度优先遍历
      */
     @Override
     public void levelPrintTree(TreeNode root) {

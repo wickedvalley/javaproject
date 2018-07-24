@@ -21,6 +21,7 @@ public interface Tree {
 
     /**
      * 非递归先序遍历
+     * 说明：该遍历也属于深度优先遍历
      * */
     void nonRecursionPreOrder(TreeNode current);
 
