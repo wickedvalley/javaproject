@@ -31,6 +31,7 @@ public class Dijkstra {
         //返回一个int[] 数组，表示从start到它的最短路径长度
         int n = weight.length;        //顶点个数
         int[] shortPath = new int[n];    //存放从start到其他各点的最短路径距离
+
         String[] path=new String[n]; //存放从start到其他各点的最短路径的字符串表示
         for(int i=0;i<n;i++)
             path[i]=new String(start+"-->"+i);
