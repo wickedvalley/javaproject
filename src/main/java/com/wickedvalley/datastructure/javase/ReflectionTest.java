@@ -3,6 +3,7 @@ package com.wickedvalley.datastructure.javase;
 import com.wickedvalley.datastructure.domain.Person;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 /**
@@ -10,7 +11,7 @@ import java.lang.reflect.Method;
  */
 public class ReflectionTest {
 
-    public static void main(String[] args) throws ClassNotFoundException {
+    public static void main(String[] args) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException, NoSuchMethodException {
 
         Person person = new Person();
 
@@ -37,6 +38,11 @@ public class ReflectionTest {
         for (Method method : methods){
             System.out.println(method.getName());
         }
+
+        Method methodTest = clazz.getDeclaredMethod("say");
+        methodTest.setAccessible(true);
+        //执行对象的方法
+        methodTest.invoke(person);
 
 
         Class parent = clazz.getSuperclass();

@@ -132,40 +132,7 @@ public class MySorter {
         return array;
     }
 
-    public static int[] mergeArr(int[] a, int[] b) {
-        Stack<Integer> result =new Stack<Integer>();
-        int i = 0, j = 0;
-//        int [] a ={1,3,4,5};
-//        int [] b={2,4,6};
-        while (i < a.length && j < b.length) {
-            if (a[i] <= b[j]) {
-                if (!result.isEmpty()&&a[i]==result.peek()){
-                    i++;
-                    continue;
-                }
-                result.add(a[i++]);
-            }else {
-                if (!result.isEmpty()&&b[j]==result.peek()){
-                    j++;
-                    continue;
-                }
-                result.add(b[j++]);
-            }
-        }
-        while (i < a.length) {
-            result.add(a[i++]);
-        }
-        while (j < b.length) {
-            result.add(b[j++]);
-        }
 
-        int[] newResult = new int[result.size()];
-        for (int l = result.size()-1; l >=0; l--) {
-            newResult[l]=result.pop();
-        }
-
-        return newResult;
-    }
 
 
     /**
@@ -225,17 +192,6 @@ public class MySorter {
         //二分查找
 //        int index = mySorter.binarySearch(array, 7);
 //        System.out.println(index);
-
-        int [] a ={1,3,4,5};
-        int [] b={2,4,6};
-//        Integer [] combinedArray = mySorter.combineTwoArray(a,b);
-
-//        int[] a = {1,2,3,4,7};
-//        int[] b = {1,3,4,5,6,7,8};
-        int[] result = mergeArr(a, b);
-        for (int i = 0; i < result.length; i++) {
-            System.out.print(result[i]+" ");
-        }
 
 
     }
