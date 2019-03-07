@@ -9,7 +9,7 @@ public class MySubject extends AbstractSubject implements Subject{
 
     @Override
     public void operation() {
-        System.out.println("update self...");
+        System.out.println("发布任务...");
         notifyAllObservers();
     }
 }
